@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AlinkaHomyak</string>
+    <string name="description">Description</string>
+    <string name="contact_picture">contact picture</string>
+    <string name="details">Детали</string>
+    <string name="contacts">Контакты</string>
 </resources>

@@ -8,16 +8,28 @@ import androidx.fragment.app.Fragment
 
 
 class ContactDetailFragment: Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    companion object{
+        fun getFragID(args:Bundle?):ContactDetailFragment{
+            val contactDetailFragment = ContactDetailFragment()
+            contactDetailFragment.arguments = args
+            return contactDetailFragment
+        }
+    }
 
-    ): View? {
-        val detailFragment = inflater.inflate(R.layout.contact_detail_fragment, container, false);
-        (activity as AppCompatActivity).supportActionBar?.title = ("Детали контакта")
-        return detailFragment;
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.contact_detail_fragment, container, false)
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
 
     }
 
 }
+
+
+
+

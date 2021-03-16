@@ -8,21 +8,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val contactListFragment = ContactListFragment()
+
+        if (savedInstanceState == null){
+            addFragmentList()
+        }
 
 
 
 
-        if (savedInstanceState == null) {
+    }
+
+    private fun addFragmentList() {
+            val contactListFragment = ContactListFragment()
             supportFragmentManager
-                .beginTransaction()
-                .add(R.id.fragmentContainer, contactListFragment)
-                .commit()
-
-
+                    .beginTransaction()
+                    .add(R.id.fragmentContainer, contactListFragment)
+                    .commit()
         }
     }
-}
+
 
 
 

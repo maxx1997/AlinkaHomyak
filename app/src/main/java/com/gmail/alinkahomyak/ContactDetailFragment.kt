@@ -6,19 +6,19 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 
-
 class ContactDetailFragment: Fragment() {
-    companion object{
-        fun getFragID(args:Bundle?):ContactDetailFragment{
-            val contactDetailFragment = ContactDetailFragment()
-            contactDetailFragment.arguments = args
-            return contactDetailFragment
-        }
+    fun newInstance(id: Int) =  ContactDetailFragment().apply {
+        val bundle = Bundle()
+        arguments = bundle
+        bundle.getInt("idContact", id)
     }
 
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.contact_detail_fragment, container, false)
+        newInstance(id)
+        return    inflater.inflate(R.layout.contact_detail_fragment, container, false)
+
     }
 
 
@@ -27,6 +27,7 @@ class ContactDetailFragment: Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.details)
 
     }
+
 
 }
 
